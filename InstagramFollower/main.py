@@ -7,17 +7,26 @@ import time
  
 SIMILAR_ACCOUNT="codingdojodotco" 
 USERNAME="onparadiscoding"
-PASSWORD="***********"
+PASSWORD="***************"
+
+def find_button_text_index(buttons, text) -> int:
+        index = 0
+        for button in buttons: 
+            if button.text == text:
+                return index
+            else:
+                index += 1
 
 
 class InstaFollower():  
     def __init__(self) -> None:
          self.driver = webdriver.Chrome() 
+
     
     def login(self):  
         self.driver.get("https://www.instagram.com/accounts/login/") 
         self.driver.maximize_window() # For maximizing window
-        self.driver.implicitly_wait(20) # gives an implicit wait for 20 seconds to prevent attempting to find next element before page load
+        self.driver.implicitly_wait(10) # gives an implicit wait for 10 seconds to prevent attempting to find next element before page load
         username=self.driver.find_element(By.NAME, "username")
         password=self.driver.find_element(By.NAME, "password") 
 
@@ -27,8 +36,21 @@ class InstaFollower():
 
         time.sleep(5)
         password.send_keys(Keys.ENTER)
-        save_info = self.driver.find_element(By.XPATH, "//*[@id='react-root']/section/main/div/div/div/div/button")
-        save_info.click() #Clicks the login button
+  
+        # Click "Not Now" button to saving login info
+        time.sleep(5)
+        buttons = self.driver.find_elements(by=By.TAG_NAME, value="button")
+        buttons[find_button_text_index(buttons, "Save Info")].click() 
+
+        # Click "Not Now" to Notifications
+        time.sleep(5)
+        buttons = self.driver.find_elements(by=By.TAG_NAME, value="button")
+        buttons[find_button_text_index(buttons, "Turn On")].click()
+    
+    def navigateToAccount(self, accountWithFollowers): 
+        time.sleep(5)
+        self.driver.get("https://www.instagram.com/" + accountWithFollowers + "/") 
+        time.sleep(5)
 
     def find_followers(): 
         pass 
@@ -40,3 +62,4 @@ findFollowers = InstaFollower()
 
 #Call three class methods to login and add new followers. 
 findFollowers.login() 
+findFollowers.navigateToAccount(SIMILAR_ACCOUNT)
