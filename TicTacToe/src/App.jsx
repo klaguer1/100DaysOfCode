@@ -1,4 +1,5 @@
 import Player from "./components/Player"; 
+import TicTacToeBoard from "./components/TicTacToeBoard";
 
 function App() {
   
@@ -13,7 +14,7 @@ function App() {
 
         </ol>
 
-        GAME BOARD
+        <TicTacToeBoard/>
       </div> 
       LOG 
     </main>
