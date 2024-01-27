@@ -1,23 +1,19 @@
-import { useState } from "react"; 
 
-const initialBoard = [
-    [null, null, null], 
-    [null, null, null], 
-    [null, null, null]
-];
+export default function TicTacToeBoard({gameBoard, onSelectSquare}) { 
 
-export default function TicTacToeBoard() {  
 
-    const [gameBoard, setGameBoard] = useState(initialBoard); 
 
-    const updateGameBoard = (rowIndex, colIndex) => { 
-        setGameBoard((prevGameBoard) => {
-            const newBoard = [...prevGameBoard.map(innerArray => [...innerArray])]; 
-            newBoard[rowIndex][colIndex] = 'X'; 
-            return newBoard;
-        });
+    // const [gameBoard, setGameBoard] = useState(initialBoard); 
 
-    }
+    // const updateGameBoard = (rowIndex, colIndex) => { 
+    //     setGameBoard((prevGameBoard) => {
+    //         const newBoard = [...prevGameBoard.map(innerArray => [...innerArray])]; 
+    //         newBoard[rowIndex][colIndex] = activePlayerSymbol; 
+    //         return newBoard;
+    //     });
+        
+    //     onSelectSquare();
+    // }
 
     return <ol id="game-board">
         {gameBoard.map((row, rowIndex)=>(
@@ -25,7 +21,10 @@ export default function TicTacToeBoard() {
                 <ol>
                     {row.map((playerSymbol, colIndex) => (
                         <li key={colIndex}>
-                            <button onClick={() => updateGameBoard(rowIndex, colIndex)}>{playerSymbol}</button>
+                            <button 
+                            onClick={() => onSelectSquare(rowIndex, colIndex)} disabled={playerSymbol !== null}>
+                                
+                                {playerSymbol}</button>
                         </li>
                     ))}
                 </ol>
