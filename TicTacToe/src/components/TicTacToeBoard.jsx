@@ -2,19 +2,6 @@
 export default function TicTacToeBoard({gameBoard, onSelectSquare}) { 
 
 
-
-    // const [gameBoard, setGameBoard] = useState(initialBoard); 
-
-    // const updateGameBoard = (rowIndex, colIndex) => { 
-    //     setGameBoard((prevGameBoard) => {
-    //         const newBoard = [...prevGameBoard.map(innerArray => [...innerArray])]; 
-    //         newBoard[rowIndex][colIndex] = activePlayerSymbol; 
-    //         return newBoard;
-    //     });
-        
-    //     onSelectSquare();
-    // }
-
     return <ol id="game-board">
         {gameBoard.map((row, rowIndex)=>(
             <li key={rowIndex}>
