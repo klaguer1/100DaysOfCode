@@ -1,20 +1,16 @@
-import { useState, useRef } from "react"
+import { forwardRef } from "react"
 
-export default function Player() {
-    const [enteredPlayerName, setPlayerName] = useState("")
-
-    const playerName = useRef()
-
-    const handleButtonClicked = () => {
-        setPlayerName(playerName.current.value)
-    }
+export default forwardRef(function Player(
+    { handleNameChange, playerName },
+    ref
+) {
     return (
         <section id='player'>
-            <h2>Welcome {enteredPlayerName || "unknown entity"}</h2>
+            <h2>Welcome {playerName || "unknown entity"}</h2>
             <p>
-                <input type='text' ref={playerName} />
-                <button onClick={handleButtonClicked}>Set Name</button>
+                <input type='text' ref={ref} />
+                <button onClick={handleNameChange}>Set Name</button>
             </p>
         </section>
     )
-}
+})
