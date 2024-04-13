@@ -29,7 +29,7 @@ export default function Categories({
 
       setIsLeftVisible(translate > 0);
       setIsRightVisible(
-        translate + container.clientWidth < container.scrollWidth
+        translate + container.clientWidth < container.scrollWidth,
       );
     });
 

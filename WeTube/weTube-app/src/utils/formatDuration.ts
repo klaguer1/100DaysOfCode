@@ -9,7 +9,7 @@ export function formatDuration(duration: number) {
 
   if (hours > 0) {
     return `${hours}:${LEADING_ZERO_FORMATTER.format(
-      minutes
+      minutes,
     )}:${LEADING_ZERO_FORMATTER.format(seconds)}`;
   }
 
