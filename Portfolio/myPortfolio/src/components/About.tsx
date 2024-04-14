@@ -5,7 +5,7 @@ import arrow from "../assets/arrow.png";
 export default function () {
   return (
     <>
-      <section className="text-center relative" id="about">
+      <section className="text-center h-[100vh] relative" id="about">
         <p>Get to Know More </p>
         <h1 className="font-semibold text-5xl">About Me</h1>
         <div className="section-container h-4/5">
@@ -59,7 +59,7 @@ export default function () {
           </div>
         </div>
         <img
-          className="absolute right-0 bottom-10 h-12 w-12"
+          className="absolute right-0 bottom-5 h-8 w-8"
           src={arrow}
           alt="Arrow-to-scroll-icon"
           onClick={() => (location.href = "./#experience")}

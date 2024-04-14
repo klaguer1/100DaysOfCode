@@ -2,10 +2,11 @@ import header from "../assets/Header.jpeg";
 import githubLogo from "../assets/github.png";
 import linkedInLogo from "../assets/linkedin.png";
 import resume from "../assets/KevinResume2024.pdf";
+import arrow from "../assets/arrow.png";
 
 export default function Hero() {
   return (
-    <section className="justify-center flex h-[80vh] gap-5 mb-20 ">
+    <section className="justify-center flex h-[90vh] gap-5 mb-20 ">
       <div className="flex lg:h-[400px] lg:w-[400px] mx-0 my-auto md:h-[200px]  md:w-[200px] sm:h-[200px] sm:w-[200px]">
         <img className="rounded-[50%]" src={header} alt="profile picture"></img>
       </div>
@@ -42,6 +43,12 @@ export default function Hero() {
           />
         </div>
       </div>
+      <img
+        className="absolute right-0 bottom-10 h-8 w-8"
+        src={arrow}
+        alt="Arrow-to-scroll-icon"
+        onClick={() => (location.href = "./#about")}
+      />
     </section>
   );
 }
